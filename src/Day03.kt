@@ -24,6 +24,37 @@ fun getCommonItemAndPriority(items: List<String>): Pair<Char, Int> {
 }
 
 fun main() {
+    fun part1Assertions() {
+        assert(findCommonItem("vJrwpWtwJgWrhcsFMMfFFhFp") == 'p')
+        assert(findCommonItem("jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL") == 'L')
+        assert(findCommonItem("PmmdzqPrVvPwwTWBwg") == 'P')
+        assert(findCommonItem("wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn") == 'v')
+        assert(findCommonItem("ttgJtRGJQctTZtZT") == 't')
+        assert(findCommonItem("CrZsJsPPZsGzwwsLwLmpwMDw") == 's')
+    }
+
+    fun part2Assertions() {
+        assert(
+            getCommonItemAndPriority(
+                listOf(
+                    "vJrwpWtwJgWrhcsFMMfFFhFp",
+                    "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
+                    "PmmdzqPrVvPwwTWBwg",
+                ),
+            ) == 'r' to 18,
+        )
+
+        assert(
+            getCommonItemAndPriority(
+                listOf(
+                    "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn",
+                    "ttgJtRGJQctTZtZT",
+                    "CrZsJsPPZsGzwwsLwLmpwMDw",
+                ),
+            ) == 'Z' to 52,
+        )
+    }
+
     val input = readInput("Day03")
 
     part1Assertions()
@@ -36,35 +67,4 @@ fun main() {
         .map { getCommonItemAndPriority(it) }
         .sumOf { it.second }
     println("Part 2: $part2Value")
-}
-
-fun part1Assertions() {
-    assert(findCommonItem("vJrwpWtwJgWrhcsFMMfFFhFp") == 'p')
-    assert(findCommonItem("jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL") == 'L')
-    assert(findCommonItem("PmmdzqPrVvPwwTWBwg") == 'P')
-    assert(findCommonItem("wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn") == 'v')
-    assert(findCommonItem("ttgJtRGJQctTZtZT") == 't')
-    assert(findCommonItem("CrZsJsPPZsGzwwsLwLmpwMDw") == 's')
-}
-
-fun part2Assertions() {
-    assert(
-        getCommonItemAndPriority(
-            listOf(
-                "vJrwpWtwJgWrhcsFMMfFFhFp",
-                "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
-                "PmmdzqPrVvPwwTWBwg",
-            ),
-        ) == 'r' to 18,
-    )
-
-    assert(
-        getCommonItemAndPriority(
-            listOf(
-                "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn",
-                "ttgJtRGJQctTZtZT",
-                "CrZsJsPPZsGzwwsLwLmpwMDw",
-            ),
-        ) == 'Z' to 52,
-    )
 }
